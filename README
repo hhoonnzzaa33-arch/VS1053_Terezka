@@ -1,0 +1,34 @@
+Simple VS1053 driver for ESP32 / ESP32-S3
+
+Jednoduché nastavení pro ESP32-S3.
+
+Pokud používáš jinou desku, uprav si piny podle svého zapojení.
+
+Odzkoušeno na ESP32-S3 N16R8.
+
+Když to nejde:
+- zkontroluj piny
+- zkontroluj DREQ
+- zkus HSPI místo FSPI
+- zkontroluj, jestli tvoje deska vůbec používá stejné SPI označení
+
+Piny:
+VS_MOSI = 11
+VS_MISO = 13
+VS_SCK  = 12
+VS_CS   = 10
+VS_DCS  = 9
+VS_DREQ = 8
+VS_RESET= 14
+
+Pokud máš jiné zapojení, změň si definice výše.
+
+
+- custom SPIClass support
+- DREQ handling
+- SCI / SDI register access
+- VLSI patch loader
+- bass/treble register support
+- tested with ESP32-S3 N16R8
+
+viz https://youtu.be/u2Sa6qEwzKI
