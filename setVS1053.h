@@ -8,6 +8,7 @@
 #pragma once
 #include <Arduino.h>
 #include <SPI.h>
+//prepis podle sebe
 extern byte hlasitost, basy, basyF, vysky, vyskyF, aktivniStanice;//uprav si to
 // Definice sběrnice pro VS1053 (Terezka)
 SPIClass *spiTerezka = new SPIClass(FSPI);
@@ -53,4 +54,36 @@ void nastavBassTreble() {
   player.write_register(0x02, val);
   Serial.printf("SCI_BASS: 0x%04X\n", val);
 }
+// a kdo nevi tak klasika 
+void vs1053_showstation(const char *info) {
+  Serial.print("STATION: ");
+  Serial.println(info);
+}
 
+void vs1053_showstreamtitle(const char *info) {
+  Serial.print("SONG: ");
+  Serial.println(info);
+}
+
+void vs1053_lasthost(const char *info) {
+  Serial.print("Connecting to: ");
+  Serial.println(info);
+
+}
+
+void vs1053_bitrate(const char *br) {
+  Serial.print("BITRATE: ");
+  Serial.println(br);
+
+}
+void vs1053_icyurl(const char *info) {
+  Serial.print("Homepage:     ");
+  Serial.println(info);
+}
+// Tyhle dvě jsou volitelné, ale ať máš klid od kompilátoru
+void vs1053_info(const char *info) {
+  Serial.println(info);
+}
+void vs1053_eof_mp3(const char *info) {
+  Serial.println(info);
+}
