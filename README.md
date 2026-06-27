@@ -1,2 +1,141 @@
-# VS1053_Terezka
-Jednoduchý VS1053 driver pro ESP32-S3
+# Simple VS1053 driver for ESP32 / ESP32-S3
+
+Minimal VS1053 driver for Internet Radio projects using ESP32 and ESP32-S3.
+
+This is **not** a full-featured VS1053 library. It contains only the functionality I needed for my own Internet Radio project.
+
+Based on Bodmer's VS1053 library, simplified and extended with custom SPIClass support and WRAM analyzer access.
+
+---
+
+## Features
+
+* ESP32 / ESP32-S3 support
+* Custom SPIClass support (FSPI / HSPI)
+* DREQ handling
+* SCI / SDI register access
+* WRAM read / write
+* 14-band spectrum analyzer support
+* VLSI patch loader
+* Bass / Treble register support
+
+---
+
+## Tested on
+
+* ESP32-S3 N16R8
+* VS1053B
+
+---
+
+## Default pinout
+
+```cpp
+VS_MOSI  = 11
+VS_MISO  = 13
+VS_SCK   = 12
+VS_CS    = 10
+VS_DCS   = 9
+VS_DREQ  = 8
+VS_RESET = 14
+```
+
+If you use another ESP32 board, simply change the pin definitions.
+
+---
+
+## Troubleshooting
+
+If it doesn't work:
+
+* Check the power supply.
+* Check the wiring.
+* Verify that the **DREQ pin is HIGH**.
+* Try **HSPI** instead of **FSPI**.
+* Verify that your board uses the correct SPI peripheral.
+
+If the communication test passes, the VS1053 is connected correctly.
+
+---
+
+## Demo
+
+https://youtu.be/u2Sa6qEwzKI
+
+---
+
+Pull requests, bug reports and improvements are welcome.
+
+If this library helped you, please consider giving it a ⭐ on GitHub.
+
+---
+
+# Jednoduchý ovladač VS1053 pro ESP32 / ESP32-S3
+
+Jednoduchá knihovna pro internetové rádio na ESP32 a ESP32-S3.
+
+**Není to univerzální knihovna pro všechny funkce VS1053.** Obsahuje jen to, co jsem skutečně potřeboval pro svůj projekt internetového rádia.
+
+Knihovna vychází z knihovny **Bodmera**, kterou jsem upravil pro ESP32-S3 a doplnil o podporu vlastního SPIClass, přístup do WRAM a další úpravy.
+
+---
+
+## Co umí
+
+* podpora ESP32 a ESP32-S3
+* vlastní SPIClass (FSPI / HSPI)
+* komunikace přes DREQ
+* přístup do SCI / SDI registrů
+* čtení a zápis WRAM
+* nahrání VLSI patchů
+* 14pásmový analyzér
+* nastavení basů a výšek
+
+---
+
+## Odzkoušeno na
+
+* ESP32-S3 N16R8
+* VS1053B
+
+---
+
+## Výchozí zapojení
+
+```cpp
+VS_MOSI  = 11
+VS_MISO  = 13
+VS_SCK   = 12
+VS_CS    = 10
+VS_DCS   = 9
+VS_DREQ  = 8
+VS_RESET = 14
+```
+
+Používáš jinou desku?
+
+Nevadí. Stačí změnit čísla pinů podle svého zapojení.
+
+---
+
+## Když to nejede
+
+* Zkontroluj napájení.
+* Zkontroluj zapojení.
+* Ověř, že **pin DREQ je v logické 1 (HIGH)**.
+* Zkus **HSPI** místo **FSPI**.
+* Ověř, že tvoje deska používá správné SPI.
+
+Pokud test komunikace projde, je VS1053 správně připojená.
+
+---
+
+## Ukázka
+
+https://youtu.be/u2Sa6qEwzKI
+
+---
+
+Pokud najdeš chybu nebo něco vylepšíš, budu rád za zpětnou vazbu.
+
+Pokud ti knihovna pomohla, budu rád za ⭐ na GitHubu.
